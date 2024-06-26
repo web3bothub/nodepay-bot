@@ -33,7 +33,6 @@ const callAPIInfo = async (token, userAgent) => {
   const response = await axios.post("https://api.nodepay.ai/api/auth/session", {}, {
     credentials: "include",
     headers: {
-      'user-agent': userAgent,
       'Authorization': `Bearer ${token}`,
       'Content-Type': "application/json",
     }

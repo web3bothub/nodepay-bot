@@ -30,7 +30,7 @@ function uuidv4() {
 
 const callAPIInfo = async (token, userAgent) => {
   console.log(`[INFO] callAPIInfo with token: ${token}`)
-  const response = await axios.post("https://sandbox-api.nodepay.ai/api/auth/session", {}, {
+  const response = await axios.post("https://api.nodepay.ai/api/auth/session", {}, {
     credentials: "include",
     headers: {
       'user-agent': userAgent,

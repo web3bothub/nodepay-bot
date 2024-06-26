@@ -1,7 +1,7 @@
 const WEBSOCKET_URL = "wss://nw.nodepay.ai:4576/websocket"
 const RETRY_INTERVAL = 60000
-const PING_INTERVAL = 10000
-const VERSION = '2.1.0'
+const PING_INTERVAL = 105000
+const VERSION = '2.1.9'
 const STATUSES = {
   CONNECTED: "CONNECTED",
   DISCONNECTED: "DISCONNECTED",
@@ -164,7 +164,7 @@ class App {
 
       setTimeout(() => {
         this.initialize()
-        retries++
+        this.retries++
       }, RETRY_INTERVAL)
     }.bind(this))
 

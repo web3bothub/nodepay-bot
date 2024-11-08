@@ -1,4 +1,4 @@
-# nodepay-bot
+# [nodepay-bot](https://app.nodepay.ai/register?ref=ffWdlWvILxU2eSW)
 
 This repository contains code for the `nodepay-bot`, a bot designed to perform WebSocket connections through various HTTP proxies.
 

@@ -2,6 +2,9 @@
 
 This repository contains code for the `nodepay-bot`, a bot designed to perform WebSocket connections through various HTTP proxies.
 
+> [!WARN]
+> This robot has been abandoned. Do not use it ！！！！
+
 ## Overview
 
 The `nodepay-bot` bot establishes WebSocket connections using HTTP proxies to a specified WebSocket server. It utilizes the `ws` library for WebSocket communication and the `https-proxy-agent` library for proxy support.

@@ -1,6 +1,11 @@
-# NodePay bot
+# [NodePay bot](https://app.nodepay.ai/register?ref=ffWdlWvILxU2eSW)
 
-Auto ping bot for NodePay, with multi accounts and multi proxies support.
+<img width="1029" alt="SCR-20241112-jxnf" src="https://github.com/user-attachments/assets/e74ddf95-1bec-48db-9bd7-2dee7e712002">
+
+
+Auto ping bot for [NodePay](https://app.nodepay.ai/register?ref=ffWdlWvILxU2eSW), with multi accounts and multi proxies support.
+
+[https://app.nodepay.ai/](https://app.nodepay.ai/register?ref=ffWdlWvILxU2eSW)
 
 ## Features
 
@@ -47,6 +52,7 @@ You can buy proxies from [ProxyCheap](https://app.proxy-cheap.com/r/ksvW8Z) or a
 
 ### Running the Bot with Docker (not ready)
 
+1. Create a text file named `tokens.txt` with your copied `np_token`.
 1. Create a text file named `proxies.txt` with the desired proxy URLs. Ensure each URL is in the format:
 
 ```plaintext
@@ -61,7 +67,7 @@ socks5://username:password@hostname2:port
 
 1. Run the `nodepay-bot` using Docker:
 
-if you have a single account:
+### Single Accounts
 
 ```bash
 docker run -d \
@@ -118,6 +124,7 @@ git clone git@github.com:web3bothub/nodepay-bot.git
 cd nodepay-bot
 ```
 
+1. Create a text file named `tokens.txt` with your copied `np_token`.
 1. Create the `proxies.txt` file with the desired proxy URLs. Ensure each URL is in the format:
 
 ```plaintext

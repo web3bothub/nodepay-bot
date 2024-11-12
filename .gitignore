@@ -3,3 +3,4 @@ package-lock.json
 /logs
 /web/users/*
 proxies.txt
+tokens.txt

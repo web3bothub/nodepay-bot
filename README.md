@@ -1,10 +1,14 @@
-# nodepay-bot
+# NodePay bot
 
-This repository contains code for the `nodepay-bot`, a bot designed to perform WebSocket connections through various HTTP proxies.
+Auto ping bot for NodePay, with multi accounts and multi proxies support.
 
-## Overview
+## Features
 
-The `nodepay-bot` bot establishes WebSocket connections using HTTP proxies to a specified WebSocket server. It utilizes the `ws` library for WebSocket communication and the `https-proxy-agent` library for proxy support.
+- Multi accounts support.
+- Multi proxies support.
+- Auto ping every 6 minutes.
+- Parallel ping with multi accounts and multi proxies.
+- Auto retry when the connection is lost.
 
 ## Installation
 
@@ -39,6 +43,8 @@ copy(localStorage.getItem('np_token'));
 
 You can buy proxies from [ProxyCheap](https://app.proxy-cheap.com/r/ksvW8Z) or any other proxy provider.
 
+> It seems that the official has restricted that a maximum of 10 nodes are valid for one account. So please don't configure too many proxies for each account. It is recommended to have a maximum of 10.
+
 ### Running the Bot with Docker (not ready)
 
 1. Create a text file named `proxies.txt` with the desired proxy URLs. Ensure each URL is in the format:
@@ -55,8 +61,45 @@ socks5://username:password@hostname2:port
 
 1. Run the `nodepay-bot` using Docker:
 
+if you have a single account:
+
 ```bash
-docker run -d -v $(pwd)/proxies.txt:/app/proxies.txt -e USER_ID="your-user-id" overtrue/nodepay-bot
+docker run -d \
+  -v $(pwd)/tokens.txt:/app/tokens.txt \
+  -v $(pwd)/proxies.txt:/app/proxies.txt \
+  overtrue/nodepay-bot
+```
+
+### Multi Accounts
+
+If you have multiple accounts, you can create a `tokens.txt` file with the following format:
+
+```plaintext
+eyJh...
+eyJi...
+```
+
+and create a dir named `proxies/N.txt` with the following structure, `N` is the account index, starting from 1,
+
+for example, if you have 3 accounts, you should create 3 proxies files:
+
+```plaintext
+proxies/1.txt
+proxies/2.txt
+proxies/3.txt
+```
+
+> Note: You can use HTTP or SOCKS5 proxies, and you can config with multiple proxies in the `proxies/N.txt` file (one proxy per line).
+>
+> It seems that the official has restricted that a maximum of 10 nodes are valid for one account. So please don't configure too many proxies for each account. It is recommended to have a maximum of 10.
+
+and run the bot with the following command:
+
+```bash
+docker run -d \
+  -v $(pwd)/tokens.txt:/app/tokens.txt \
+  -v $(pwd)/proxies:/app/proxies \
+  overtrue/nodepay-bot
 ```
 
 ### Manual Installation
@@ -86,18 +129,20 @@ socks5://username:password@hostname2:port
 ```
 
 > Note: You can use HTTP or SOCKS5 proxies, You can config with multiple proxies in the `proxies.txt` file (one proxy per line).
+>
+> It seems that the official has restricted that a maximum of 10 nodes are valid for one account. So please don't configure too many proxies for each account. It is recommended to have a maximum of 10.
 
 1. Run the `nodepay-bot` by executing the following command:
 
 ```bash
-node start.js -t <your-user-id>
+npm run start
 ```
 
 1. If you want to run the bot in the background, you can use the `pm2` package:
 
 ```bash
 npm install -g pm2
-pm2 start start.js -- -t <your-user-id>
+pm2 start app.js
 ```
 
 ## Note

@@ -65,7 +65,7 @@ class AccountSession {
       const proxyData = await fs.readFile(accountProxyPath, 'utf-8').catch(async () => {
         // If account-specific file is not found, fall back to root proxies.txt
         const rootProxyPath = './proxies.txt'
-        this.logger.warn(`Account-specific proxy file(${accountProxyPath}) not found, trying ${rootProxyPath} instead`)
+        this.logger.info(`Account-specific proxy file(${accountProxyPath}) not found, trying ${rootProxyPath} instead.`)
         return await fs.readFile(rootProxyPath, 'utf-8')
       })
 

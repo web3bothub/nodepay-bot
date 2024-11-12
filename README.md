@@ -9,7 +9,7 @@ Auto ping bot for [NodePay](https://app.nodepay.ai/register?ref=ffWdlWvILxU2eSW)
 
 [https://app.nodepay.ai/](https://app.nodepay.ai/register?ref=ffWdlWvILxU2eSW)
 
-[手把手中文使用教程](https://mirror.xyz/0xe8224b3E9C8d35b34D088BB5A216B733a5A6D9EA/S5Pjq_SlQoJvLwyV0Q0wSpqo7h_2-V0uPwaiyhDG-r0)
+[手把手中文使用教程](https://mirror.xyz/0xe8224b3E9C8d35b34D088BB5A216B733a5A6D9EA/S5Pjq_SlQoJvLwyV0Q0wSpqo7h_2-V0uPwaiyhDG-r0) | TG Channel: https://t.me/+ntyApQYvrBowZTc1
 
 ## Features
 

@@ -57,7 +57,7 @@ socks5://username:password@hostname2:port
 
 1. Run the `nodepay-bot` using Docker:
 
-### Single Accounts
+#### Single Accounts
 
 ```bash
 docker run -d \
@@ -66,7 +66,7 @@ docker run -d \
   overtrue/nodepay-bot
 ```
 
-### Multi Accounts
+#### Multi Accounts
 
 If you have multiple accounts, you can create a `tokens.txt` file with the following format:
 

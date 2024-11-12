@@ -1,6 +1,8 @@
 # [NodePay bot](https://app.nodepay.ai/register?ref=ffWdlWvILxU2eSW)
 
-<a href="https://app.nodepay.ai/register?ref=ffWdlWvILxU2eSW" target="_blank"><img width="1029" alt="SCR-20241112-jxnf" src="https://github.com/user-attachments/assets/e74ddf95-1bec-48db-9bd7-2dee7e712002"></a>
+<a href="https://app.nodepay.ai/register?ref=ffWdlWvILxU2eSW" target="_blank">
+  <img alt="image" src="https://github.com/user-attachments/assets/55afee11-765c-42ff-9460-3c1cac1252d4">
+</a>
 
 
 Auto ping bot for [NodePay](https://app.nodepay.ai/register?ref=ffWdlWvILxU2eSW), with multi accounts and multi proxies support.

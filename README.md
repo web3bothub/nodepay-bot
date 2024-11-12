@@ -15,16 +15,6 @@ Auto ping bot for [NodePay](https://app.nodepay.ai/register?ref=ffWdlWvILxU2eSW)
 - Parallel ping with multi accounts and multi proxies.
 - Auto retry when the connection is lost.
 
-## Installation
-
-1. Clone this repository to your local machine.
-2. Navigate to the project directory.
-3. Install dependencies using npm:
-
-```bash
-npm install
-```
-
 ## Usage
 
 The `nodepay-bot` can be run using Docker or manually.
@@ -107,6 +97,18 @@ docker run -d \
   -v $(pwd)/proxies:/app/proxies \
   overtrue/nodepay-bot
 ```
+
+
+### Check running stats
+
+```bash
+# get containerid
+docker ps
+
+# show logs of containerid
+docker logs -f <containerid>
+```
+
 
 ### Manual Installation
 

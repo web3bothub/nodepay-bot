@@ -97,6 +97,12 @@ class AccountSession {
             throw new Error('Invalid response')
           }
 
+          if (!response.data.code !== 200) {
+            this.logger.error(`Failed to authenticate with proxy ${proxy}: ${JSON.stringify(response.data)}`)
+            this.handleLogout(proxy)
+            continue
+          }
+
           this.accountInfo = response.data.data
           if (this.accountInfo.uid) {
             this.proxyAuthStatus = true
@@ -109,7 +115,7 @@ class AccountSession {
           }
         }
       } catch (error) {
-        this.logger.error(`Error in renderProfileInfo for proxy ${proxy}: ${error.message}`)
+        this.logger.error(`Failed to authenticate with proxy: ${proxy}: ${error.message}`)
       }
     }
   }

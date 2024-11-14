@@ -7,7 +7,7 @@ import { getIpAddress, getProxyAgent, getRandomUserAgent, sleep } from './utils.
 // Global constants
 const DOMAIN_API = {
   SESSION: 'http://18.136.143.169/api/auth/session',
-  PING: 'http://54.255.192.166/api/network/ping'
+  PING: 'https://nw.nodepay.org/api/network/ping'
 }
 
 const PING_INTERVAL = 180 * 1000 // 180 seconds
@@ -97,8 +97,8 @@ class AccountSession {
             throw new Error('Invalid response')
           }
 
-          if (!response.data.code !== 200) {
-            this.logger.error(`Failed to authenticate with proxy ${proxy}: ${JSON.stringify(response.data)}`)
+          if (response.data.code !== 0) {
+            this.logger.error(`Failed to authenticate with proxy ${proxy}: ${JSON.stringify(response.data)}, response.data.code is not 0`)
             this.handleLogout(proxy)
             continue
           }
@@ -109,7 +109,7 @@ class AccountSession {
             this.saveSessionInfo()
             this.logger.info(`Authenticated with proxy ${proxy}`)
           } else {
-            this.logger.error(`Failed to authenticate with proxy ${proxy}: ${JSON.stringify(this.accountInfo)}`)
+            this.logger.error(`Failed to authenticate with proxy ${proxy}: ${JSON.stringify(this.accountInfo)}, response.data.data.uid is not found`)
             this.handleLogout(proxy)
             continue
           }

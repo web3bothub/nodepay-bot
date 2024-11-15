@@ -7,7 +7,11 @@ import { getIpAddress, getProxyAgent, getRandomUserAgent, sleep } from './utils.
 // Global constants
 const DOMAIN_API = {
   SESSION: 'http://18.136.143.169/api/auth/session',
-  PING: 'https://nw.nodepay.org/api/network/ping'
+  PING: [
+    "http://52.77.10.116/api/network/ping",
+    "http://13.215.134.222/api/network/ping",
+    "http://54.255.192.166/api/network/ping",
+  ]
 }
 
 const PING_INTERVAL = 180 * 1000 // 180 seconds
@@ -52,6 +56,7 @@ class AccountSession {
     try {
       await this.getProxies()
       await this.authenticate()
+      await this.ping()
       this.startPingLoop()
     } catch (error) {
       this.logger.error(`Initialization error: ${error.message}`)
@@ -135,7 +140,7 @@ class AccountSession {
 
         if (proxy) {
           const agent = await getProxyAgent(proxy)
-          this.logger.info(`Using proxy agent...`)
+          this.logger.info(`Using proxy ${proxy} for request to ${url}`)
           options.httpAgent = agent
           options.httpsAgent = agent
         }
@@ -181,14 +186,26 @@ class AccountSession {
           timestamp: Math.floor(currentTime / 1000),
           version: '2.2.7'
         }
-        const response = await this.performRequest(DOMAIN_API.PING, data, proxy)
-        if (response?.data.code === 0) {
-          this.logger.info(`Ping successful for proxy ${proxy}`)
-          this.statusConnect = CONNECTION_STATES.CONNECTED
-          this.retries = 0
-        } else {
-          this.logger.error(`Ping failed for proxy ${proxy}`)
-          this.handlePingFail(proxy, response?.data)
+
+        // foreach each PING API, try to ping
+        let pingSuccess = false
+        for (const pingApi of DOMAIN_API.PING) {
+          this.logger.info(`Pinging [${pingApi}] for proxy ${proxy}`)
+          const response = await this.performRequest(pingApi, data, proxy)
+          this.logger.info(`Ping response: ${JSON.stringify(response?.data)}`)
+
+          if (response && response.data && response.data.code === 0) {
+            this.retries = 0
+            this.statusConnect = CONNECTION_STATES.CONNECTED
+            pingSuccess = true
+            this.logger.info(`Ping successful for proxy ${proxy}`)
+            break
+          }
+        }
+
+        if (!pingSuccess) {
+          this.logger.error(`Ping failed for proxy ${proxy}, tried all endpoints.`)
+          this.handlePingFail(proxy, null)
         }
       } catch (error) {
         this.logger.error(`Ping failed for proxy ${proxy}`)

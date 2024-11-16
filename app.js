@@ -238,7 +238,8 @@ class AccountSession {
 async function loadTokens() {
   try {
     const tokens = await fs.readFile('tokens.txt', 'utf-8')
-    return tokens.split('\n').filter(Boolean)
+    // 移除空行和空格，引号
+    return tokens.split('\n').filter(Boolean).map(token => token.trim().replace(/['"]+/g, ''))
   } catch (error) {
     console.log(`Failed to load tokens: ${error.message}`)
     throw error

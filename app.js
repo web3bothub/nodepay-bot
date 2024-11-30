@@ -8,6 +8,7 @@ import { getIpAddress, getProxyAgent, getRandomUserAgent, sleep } from './utils.
 const DOMAIN_API = {
   SESSION: 'http://api.nodepay.ai/api/auth/session',
   PING: [
+    "http://52.77.10.116/api/network/ping",
     "http://18.142.29.174/api/network/ping",
     "http://13.215.134.222/api/network/ping",
     "http://54.255.192.166/api/network/ping",

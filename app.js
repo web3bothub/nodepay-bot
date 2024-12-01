@@ -8,7 +8,7 @@ import { getIpAddress, getProxyAgent, getRandomUserAgent, sleep } from './utils.
 const DOMAIN_API = {
   SESSION: 'http://api.nodepay.ai/api/auth/session',
   PING: [
-    "http://18.142.29.174/api/network/ping",
+    "https://nw.nodepay.org/api/network/ping",
     "http://13.215.134.222/api/network/ping",
     "http://54.255.192.166/api/network/ping",
   ]
@@ -129,6 +129,7 @@ class AccountSession {
     const headers = {
       Authorization: `Bearer ${this.token}`,
       'Content-Type': 'application/json',
+      'Origin': 'chrome-extension://lgmpfmgeabnnlemejacfljbmonaomfmm',
       'User-Agent': this.userAgent
     }
 

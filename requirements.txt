@@ -1,0 +1,4 @@
+cloudscraper
+aiohttp
+aiofiles
+PySocks

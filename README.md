@@ -4,12 +4,11 @@
   <img alt="image" src="https://github.com/user-attachments/assets/55afee11-765c-42ff-9460-3c1cac1252d4">
 </a>
 
-
 Auto ping bot for [NodePay](https://app.nodepay.ai/register?ref=ffWdlWvILxU2eSW), with multi accounts and multi proxies support.
 
 [https://app.nodepay.ai/](https://app.nodepay.ai/register?ref=ffWdlWvILxU2eSW)
 
-[手把手中文使用教程](https://mirror.xyz/0xe8224b3E9C8d35b34D088BB5A216B733a5A6D9EA/S5Pjq_SlQoJvLwyV0Q0wSpqo7h_2-V0uPwaiyhDG-r0) | TG Channel: https://t.me/+ntyApQYvrBowZTc1
+[手把手中文使用教程](https://mirror.xyz/0xe8224b3E9C8d35b34D088BB5A216B733a5A6D9EA/S5Pjq_SlQoJvLwyV0Q0wSpqo7h_2-V0uPwaiyhDG-r0) | TG Channel: <https://t.me/+ntyApQYvrBowZTc1>
 
 ## Features
 
@@ -102,7 +101,6 @@ docker run -d \
   overtrue/nodepay-bot
 ```
 
-
 ### Check running stats
 
 ```bash
@@ -112,7 +110,6 @@ docker ps
 # show logs of containerid
 docker logs -f <containerid>
 ```
-
 
 ### Manual Installation
 
@@ -148,19 +145,19 @@ socks5://username:password@hostname2:port
 1. Run the `nodepay-bot` by executing the following command:
 
 ```bash
-npm run start
+pip install -r requirements.txt
 ```
 
 1. If you want to run the bot in the background, you can use the `pm2` package:
 
 ```bash
-npm install -g pm2
-pm2 start app.js
+python3 main.py
 ```
 
 ## Note
 
-- Run this bot, I don't guarantee you will get the reward, it depends on the Getgrass website.
+- Run this bot, I don't guarantee you will get the reward, it depends on the nodepay website.
+- If you dont familiar with the python, you can use the docker to run this bot.
 - You can just run this bot at your own risk, I'm not responsible for any loss or damage caused by this bot. This bot is for educational purposes only.
 
 ## Contribution

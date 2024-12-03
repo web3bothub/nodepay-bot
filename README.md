@@ -37,6 +37,15 @@ copy(localStorage.getItem('np_token'));
 
 - Copy the value returned, which is your user ID.
 
+> [!WARNING]
+> if you see the following error:
+>
+> ```json
+> {"success":false,"code":403,"msg":"Unauthorized","data":null}
+> ```
+>
+> in the console, please copy the value from the `np_token` in the `Application` tab and paste it into the `tokens.txt` file.
+
 ### Prepare proxies
 
 You can buy proxies from [ProxyCheap](https://app.proxy-cheap.com/r/ksvW8Z) or any other proxy provider.
